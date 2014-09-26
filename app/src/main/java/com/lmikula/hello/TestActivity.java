@@ -34,7 +34,7 @@ public class TestActivity extends Activity {
     OnClickListener o = new OnClickListener() {
         @Override
         public void onClick(View view) {
-            Log.d("ListenThing","This is a thing");
+            Log.d("ListenThing","This is a thing!!!!");
             tv.setText(Clicked++ + "");
         }
     };
