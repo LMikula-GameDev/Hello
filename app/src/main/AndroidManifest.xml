@@ -10,9 +10,9 @@
         <activity
             android:name=".TestActivity"
             android:label="@string/title_activity_test"
-            android:launchMode="singleTask"
-            >
-            <!-- Single task = see Android article: Tasks and Back Stack-->
+            android:launchMode="singleTask" >
+
+            <!-- Single task = see Android article: Tasks and Back Stack -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,6 +22,18 @@
         <activity
             android:name=".WinActivity"
             android:label="@string/title_activity_win"
+            android:parentActivityName=".TestActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.lmikula.hello.TestActivity" />
+        </activity>
+        <activity
+            android:name=".FragmentTester"
+            android:label="@string/title_activity_fragment_tester" >
+        </activity>
+        <activity
+            android:name=".FragmentTester2"
+            android:label="@string/title_activity_fragment_tester2"
             android:parentActivityName=".TestActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

@@ -5,21 +5,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.view.View.OnClickListener;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -39,7 +31,7 @@ public class TestActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);     // Inflating
         Log.d("TestActivity","ON CREATE");
-        b = (Button) findViewById(R.id.button);
+        b = (Button) findViewById(R.id.mainButton1);
         b.setText("This is text");
         b.setOnClickListener(o);
  //       ListAdapter listOfText = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,favouriteThings);
@@ -127,7 +119,7 @@ public class TestActivity extends Activity {
             clicked++;
             if (clicked >= 10) {
                 Log.d("TestActivity","You win!");
-                startActivity(new Intent(getApplicationContext(),WinActivity.class));   //
+                startActivity(new Intent(getApplicationContext(),FragmentTester.class));   //
 
 
 //                setContentView(R.layout.activity_win);  // Changes the first window, instead of making new window
