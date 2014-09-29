@@ -9,12 +9,23 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".TestActivity"
-            android:label="@string/title_activity_test" >
+            android:label="@string/title_activity_test"
+            android:launchMode="singleTask"
+            >
+            <!-- Single task = see Android article: Tasks and Back Stack-->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".WinActivity"
+            android:label="@string/title_activity_win"
+            android:parentActivityName=".TestActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.lmikula.hello.TestActivity" />
         </activity>
     </application>
 
