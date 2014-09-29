@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,6 +19,8 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.view.View.OnClickListener;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -27,6 +30,7 @@ public class TestActivity extends Activity {
 
     Button b;
     ListView textLayout;
+    BaseAdapter listOfText;
 //    TextView[] clickText;
 //    TextView tv;
     ArrayList<String> favouriteThings = new ArrayList<String>(Arrays.asList("pizza", "cake", "video games", "autumn", "foxes", "goats", "technology", "my computer", "my phone"));
@@ -39,7 +43,8 @@ public class TestActivity extends Activity {
         b.setText("This is text");
         b.setOnClickListener(o);
  //       ListAdapter listOfText = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,favouriteThings);
-        ListAdapter listOfText = new BaseAdapter(){
+
+        listOfText = new BaseAdapter(){
             @Override
             public int getCount() {
                 return favouriteThings.size();
@@ -58,19 +63,13 @@ public class TestActivity extends Activity {
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
                 String tempText = favouriteThings.get(position);
-                TextView newTextView;
                 if (convertView == null){
-                    newTextView = new TextView(TestActivity.this);
+                    LayoutInflater myInflater = LayoutInflater.from(TestActivity.this);
+                    convertView = myInflater.inflate(android.R.layout.simple_list_item_1,null);
                 }
-                else{
-                    newTextView = (TextView) convertView;
-                }
-                newTextView.setText(tempText);
+                ((TextView) convertView).setText(tempText);
 
-                return newTextView;
-     //           parent.getChildAt(position)
-     //           favouriteThings.get(position).
-
+                return convertView;
             }
         };
 
@@ -122,6 +121,9 @@ public class TestActivity extends Activity {
 //            clickText[clicked] = new TextView(TestActivity.this);
 //            clickText[clicked].setText("STOP CLICKING!");
 //            textLayout.addView(clickText[clicked]);
+            favouriteThings.add("Hot chocolate");
+            listOfText.notifyDataSetChanged();
+
             clicked++;
             if (clicked >= 10) {
                 Log.d("TestActivity","You win!");
