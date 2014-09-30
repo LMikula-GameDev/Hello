@@ -29,12 +29,15 @@
         </activity>
         <activity
             android:name=".FragmentTester"
-            android:label="@string/title_activity_fragment_tester" >
+            android:label="@string/title_activity_fragment_tester"
+            android:parentActivityName=".TestActivity"
+            android:launchMode="singleTask" >
         </activity>
         <activity
             android:name=".FragmentTester2"
             android:label="@string/title_activity_fragment_tester2"
-            android:parentActivityName=".TestActivity" >
+            android:parentActivityName=".TestActivity"
+            android:launchMode="singleTask">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.lmikula.hello.TestActivity" />

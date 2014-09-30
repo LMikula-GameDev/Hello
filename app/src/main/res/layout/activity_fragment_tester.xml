@@ -17,10 +17,11 @@
         android:id="@+id/fragmentButton1"
         android:layout_weight="50" />
 
-    <fragment
-        android:name="com.lmikula.hello.ColourFragment"
+    <FrameLayout
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_weight="50"
-        android:id="@+id/FragmentHigh" />
+        android:id="@+id/LayoutLow"
+        android:layout_gravity="left|top"></FrameLayout>
+
 </LinearLayout>

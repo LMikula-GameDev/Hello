@@ -10,12 +10,12 @@
     tools:context="com.lmikula.hello.FragmentTester2"
     android:weightSum="100">
 
-    <fragment
-        android:name="com.lmikula.hello.ColourFragment"
+    <FrameLayout
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_weight="50"
-        android:id="@+id/FragmentHigh" />
+        android:id="@+id/LayoutHigh"
+        android:layout_gravity="left|top"></FrameLayout>
 
     <Button
         android:layout_width="fill_parent"
